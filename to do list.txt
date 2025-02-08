@@ -1,8 +1,6 @@
 to do 
 deadline:13 luty 23:59
 ogolem:
-	zmeinic kolor czcionki w stopce
-	przy najezdzaniu na link naprawic zeby na milisekunde nie byl kwadrat 
 	moze zmienic wyglad interface, zrobic wysuwane menu lepsze kolory itp
 main page: 
 	upgrade zeby byla ciekawsza, lepszy js.
@@ -10,8 +8,6 @@ o ani:
 	upgrade js zeby zdjecie przy animacji tekstu nie wyjezdzalo za ekran
 	napisac tekst
 galeria: 
-	dodac obrot przy najechaniu na zdjecie
-	dodac cien do zdjecia 
 	dodac zdjecia
 listy:
 	stworzyc system podobny do tego w galerii
