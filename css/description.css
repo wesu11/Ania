@@ -1,0 +1,30 @@
+/* Nowy styl dla zdjęcia */
+.div_main_pic {
+    display: flex; /* Używa flexboxa do pozycjonowania elementów */
+    justify-content: flex-start; /* Wyrównuje zdjęcie do lewej strony */
+    padding: 20px; /* Dodaje odstęp wokół zdjęcia */
+}
+
+#main_pic {
+    width: 200px; /* Ustala szerokość zdjęcia */
+    height: auto; /* Zachowuje proporcje zdjęcia */
+    border-radius: 15px; /* Zaokrągla rogi zdjęcia */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Dodaje cień do zdjęcia */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Dodanie przejścia */
+}
+
+#main_div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+}
+
+#main_pic:hover{
+    transform: scale(1.1);
+}
+
+#main_div p {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Cień tekstu */
+}

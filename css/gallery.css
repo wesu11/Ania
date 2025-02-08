@@ -1,0 +1,79 @@
+.gallery { /* Style dla galerii */
+    display: grid; /* Ustawia galerię jako siatkę */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Automatyczne wypełnianie kolumn, minimalna szerokość 150px */
+    gap: 1rem; /* Odstęp między elementami galerii */
+    width: 100%; /* Szerokość galerii na 100% kontenera */
+    margin: 20px auto; /* Margines góra-dół 20px, a po bokach automatycznie (centrowanie) */
+    padding: 10px; /* Wewnętrzny odstęp */
+}
+
+.gallery img { /* Style dla obrazków w galerii */
+    width: 100%; /* Szerokość obrazka na 100% kontenera */
+    height: auto; /* Wysokość dostosowuje się proporcjonalnie */
+    border-radius: 10px; /* Zaokrąglenie rogów obrazka */
+    cursor: pointer; /* Zmienia kursor na wskaźnik */
+    transition: transform 0.3s; /* Animacja skalowania w czasie 0.3s */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+.gallery img:hover { /* Style dla obrazków po najechaniu myszką */
+    transform: scale(1.05); /* Powiększenie obrazka o 5% */
+    rotate: 2deg;
+}
+
+.image-container { /* Style dla kontenera obrazka (powiększonego podglądu) */
+    display: none; /* Domyślnie kontener jest ukryty */
+    position: fixed; /* Ustawia kontener na stałej pozycji względem okna przeglądarki */
+    top: 0; /* Pozycja od góry */
+    left: 0; /* Pozycja od lewej */
+    width: 100%; /* Szerokość kontenera na całe okno */
+    height: 100%; /* Wysokość kontenera na całe okno */
+    background: rgba(0, 0, 0, 0.9); /* Przyciemnione tło */
+    justify-content: center; /* Wyśrodkowanie zawartości poziomo */
+    align-items: center; /* Wyśrodkowanie zawartości pionowo */
+    flex-direction: column; /* Ustawia zawartość w kolumnie */
+    z-index: 1000; /* Ustawia kontener na wierzchu innych elementów */
+    padding: 20px; /* Wewnętrzny odstęp */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    opacity: 0; /* Początkowa przezroczystość */
+    transform: scale(0.9); /* Początkowa skala kontenera */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Animacja zmiany przezroczystości i skali */
+}
+
+.image-container.show { /* Style dla widocznego kontenera */
+    display: flex; /* Pokazuje kontener */
+    opacity: 1; /* Pełna przezroczystość */
+    transform: scale(1); /* Normalna skala kontenera */
+}
+
+#selected-image { /* Style dla wybranego obrazka w kontenerze */
+    max-width: 90%; /* Maksymalna szerokość obrazka */
+    max-height: 70vh; /* Maksymalna wysokość obrazka (70% wysokości okna) */
+    border-radius: 10px; /* Zaokrąglenie rogów obrazka */
+    margin-bottom: 10px; /* Margines dolny */
+    opacity: 0; /* Początkowa przezroczystość */
+    transform: scale(0.95); /* Początkowa skala obrazka */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Animacja zmiany przezroczystości i skali */
+}
+
+.image-container.show #selected-image { /* Style dla widocznego obrazka */
+    opacity: 1; /* Pełna przezroczystość */
+    transform: scale(1); /* Normalna skala obrazka */
+}
+
+.image-description { /* Style dla opisu obrazka */
+    color: #fff; /* Kolor tekstu */
+    font-size: 1.2rem; /* Rozmiar czcionki */
+    max-width: 80%; /* Maksymalna szerokość opisu */
+    background: rgba(0, 0, 0, 0.3); /* Półprzezroczyste tło opisu */
+    padding: 10px; /* Wewnętrzny odstęp */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    opacity: 0; /* Początkowa przezroczystość */
+    transform: translateY(20px); /* Początkowe przesunięcie w dół */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Animacja zmiany przezroczystości i przesunięcia */
+}
+
+.image-container.show .image-description { /* Style dla widocznego opisu */
+    opacity: 1; /* Pełna przezroczystość */
+    transform: translateY(0); /* Normalna pozycja opisu */
+}
