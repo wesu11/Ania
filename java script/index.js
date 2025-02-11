@@ -10,10 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let isButtonMoving = false;
     let isAKeyPressed = false;
     let isIKeyPressed = false;
-    let isMusicPlaying = false; 
+    let isMusicPlaying = false;
 
     backgroundMusic.volume = 0.1;
     starWarsMusic.volume = 0.3;
+
+    setInitialButtonPosition();
 
     musicControlButton.addEventListener('click', () => {
         if (isMusicPlaying) {
@@ -31,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
         }
     });
+
     document.addEventListener('keydown', (e) => {
         if (e.key === 'a' || e.key === 'A') {
             isAKeyPressed = true;
@@ -59,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
             let newX = Math.random() * (containerRect.width - buttonRect.width);
             let newY = Math.random() * (containerRect.height - buttonRect.height);
 
-            button.style.transition = 'all 0.3s ease-in-out';
             button.style.left = `${newX}px`;
             button.style.top = `${newY}px`;
 
@@ -77,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startStarWarsAnimation() {
         backgroundMusic.pause();
-        musicControlButton.textContent = 'Włącz muzykę'; 
+        musicControlButton.textContent = 'Włącz muzykę';
         isMusicPlaying = false;
 
         overlay.style.display = 'flex';
@@ -94,9 +96,16 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.style.display = 'none';
         starWarsMusic.pause();
         starWarsMusic.currentTime = 0;
-
-        backgroundMusic.play();
-        musicControlButton.textContent = 'Wycisz muzykę';
-        isMusicPlaying = true;
     });
+
+    function setInitialButtonPosition() {
+        const buttonRect = button.getBoundingClientRect();
+        const containerRect = imageContainer.getBoundingClientRect();
+
+        let initialX = Math.random() * (containerRect.width - buttonRect.width);
+        let initialY = Math.random() * (containerRect.height - buttonRect.height);
+
+        button.style.left = `${initialX}px`;
+        button.style.top = `${initialY}px`;
+    }
 });
