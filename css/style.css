@@ -1,79 +1,78 @@
-/* Ustawienia ogólne */
-body { /* ustawienia dla calego <body>*/
-    font-family: 'Arial', sans-serif; /*ustawia czcionke */
-    margin: 0; /* zeruje margin, margin to odstep na zewnatrz elementu*/
-    padding: 0; /* zeruje padding, padding to odstep wewnatrz elementu*/
-    color: #333; /* ustawia domyslny kolor czcionki */
-    background-color: #f0f4f8; /* ustawia kolor tla */
-    display: flex; /* kontroluje uklad elemntow, lepsze niz float bez plywajacych elementow */
-    flex-direction: column; /* ustawia elementy w kolumny (--->) */
-    min-height: 100vh; /* minimalna wysokosc, vh to wysokosc okna przegladarki wiec 100vh=100% niezaleznego widoku okna */
-    overflow-x: hidden; /*kontroluje co sie dzieje z zawartoscia ktora wchodzi poziomo poza granice elemntu (wzlodz osi x),hidden oznacza ze przytnie taka zwaratosc bez pokazywania paska przewijania */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f0f4f8;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-header { /* style do nagłówka */
-    background: linear-gradient(135deg, #ff0000, #ff0099);/* tworzy gradientowe tło w lini, deg to kąty, deg ustala kierunek gradientu */
-    color: #fff; /*kolor czcionki*/
-    text-align: center;/*wyśrodkowanie tekstu*/
-    padding: 2rem 0; /*padding to odstep wewnatrz elementu, rem to jednostka dlugosci zalezna od rozmiaru czcionki <html> 1rem=16px*/
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);/*nadaje cień elementom*/
+header {
+    background: linear-gradient(135deg, #ff0000, #ff0099);
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {/* h1 w header*/
-    margin: 0;/*margin to odsten na zewnatrz elementu*/
-    font-size: 2.8rem;/*rozmiar czcionki*/
+header h1 {
+    margin: 0;
+    font-size: 2.8rem;
 }
 
 nav {
-    /* background: #e681b6;kolor tła w menu */
     background: linear-gradient(135deg, #ff0000b9, #ff00998a);
-    display: flex; /*linijka 8*/
-    justify-content: center;/*uklada elementy na srodku po osi y*/
-    padding: 1rem 0;/*linijka 5 i 18*/
-    position: sticky;/* *przykleja* elemnt w okreslonym miejscu podczas przewijania strony */
-    top: 0; /* Ustawia element na samej górze względem jego kontenera */
-    z-index: 1000; /* Określa kolejność warstw elementów, wyższa wartość = element na wierzchu */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Dodaje cień do elementu, rgba określa kolor cienia z przezroczystością */
-    }
-    
-nav a { /* Style dla linków (<a>) w nawigacji */
-    border-radius: 15px;
-    color: #fff; /* Kolor tekstu linków */
-    text-decoration: none; /* Usuwa podkreślenie z linków */
-    margin: 0 1rem; /* Margines poziomy między linkami */
-    padding: 0.5rem 1rem; /* Wewnętrzny odstęp wokół tekstu linków */
-    font-size: 1rem; /* Rozmiar czcionki linków */
-    transition: background 0.3s, transform 0.3s, border-radius 0.3s; /* Animacja zmiany tła i skalowania w czasie 0.3s */
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-    
-nav a:hover { /* Style dla linków po najechaniu myszką */
-    background:  #ff6cd3b6; /* Zmiana koloru tła po najechaniu */
-    transform: scale(1.1); /* Powiększenie linku o 10% po najechaniu */
+
+nav a {
+    border-radius: 15px;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    transition: background 0.3s, transform 0.3s, border-radius 0.3s;
+}
+
+nav a:hover {
+    background: #ff6cd3b6;
+    transform: scale(1.1);
     box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
 }
-    
-main { /* Style dla sekcji głównej (<main>) */
-    padding: 3rem 1rem; /* Wewnętrzny odstęp w sekcji głównej */
-    max-width: 1200px; /* Maksymalna szerokość sekcji głównej */
-    margin: 0 auto; /* Wyśrodkowanie sekcji głównej na stronie */
-    flex: 1; /* Pozwala sekcji głównej rozciągać się, aby wypełnić dostępną przestrzeń */
+
+main {
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1;
 }
-    
-footer { /* Style dla stopki (<footer>) */
-    background: #ff6cd3; /* Kolor tła stopki */
-    color: #ffffff; /* Kolor tekstu w stopce */
-    text-align: center; /* Wyśrodkowanie tekstu w stopce */
-    padding: 1rem 0; /* Wewnętrzny odstęp w stopce */
-    margin-top: auto; /* Wypycha stopkę na dół strony, jeśli sekcja główna nie wypełnia całej wysokości */
+
+footer {
+    background: #ff6cd3;
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto;
 }
-#music-control-button{
-    position: fixed; 
-    bottom: 20px; 
-    right: 20px; 
-    padding: 10px 20px; 
+
+#music-control-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
     background: linear-gradient(135deg, #ff0000, #ff0099);
-    color: white; 
-    border: none; 
-    border-radius: 15px; 
+    color: white;
+    border: none;
+    border-radius: 15px;
     cursor: pointer;
 }

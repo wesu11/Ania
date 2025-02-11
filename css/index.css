@@ -1,4 +1,4 @@
-/* Stylizacja głównego obrazu */
+
 .image-container {
     display: flex;
     flex-direction: column;
@@ -9,13 +9,13 @@
 }
 
 .main-image {
-    max-width: auto; /* Zmniejszamy szerokość zdjęcia */
+    max-width: auto; 
     height: 500px;
-    border-radius: 15px; /* Dodajemy zaokrąglone rogi */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Dodajemy cień */
+    border-radius: 15px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
-/* Stylizacja przycisku uciekającego */
+
 .escape-button {
     margin-top: 20px;
     padding: 10px 20px;
@@ -29,7 +29,7 @@
     position: absolute;
 }
 
-/* Stylizacja ekranu z tekstem w stylu Star Wars */
+
 .overlay {
     display: none;
     position: fixed;
@@ -42,7 +42,7 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    z-index: 1001; /* Ustawiamy wyższą warstwę niż menu */
+    z-index: 1001; 
 }
 
 .crawl-text {
@@ -59,14 +59,14 @@
         transform: translateY(100%);
     }
     to {
-        transform: translateY(-300%); /* Tekst zatrzymuje się wyżej */
+        transform: translateY(-300%); 
     }
 }
 
 .close-button {
     display: none;
     position: fixed;
-    top: 27%; /* Przycisk na środku strony */
+    top: 27%; 
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 10px 20px;
@@ -77,9 +77,9 @@
     border-style: solid;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
-    z-index: 1002; /* Przycisk nad tekstem */
+    z-index: 1002; 
 }
 
 .close-button:hover {
-    transform: translate(-50%, -50%) scale(1.1); /* Lekkie powiększenie przy najechaniu */
+    transform: translate(-50%, -50%) scale(1.1); 
 }

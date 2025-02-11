@@ -1,36 +1,36 @@
-document.addEventListener('DOMContentLoaded', () => { // Nasłuchuje zdarzenia, gdy cała zawartość strony (DOM) została załadowana
-    const sections = document.querySelectorAll('main section'); // Pobiera wszystkie sekcje w elemencie <main>
-    const options = { // Opcje dla IntersectionObserver
-        threshold: 0.5, // Procent widoczności sekcji wymagany do wywołania obserwatora (50%)
-        rootMargin: "0px 0px -10% 0px" // Margines wokół obszaru obserwacji (przesunięcie o 10% od dołu)
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('main section');
+    const options = {
+        threshold: 0.5,
+        rootMargin: "0px 0px -10% 0px"
     };
 
-    const observer = new IntersectionObserver((entries) => { // Tworzy nowy IntersectionObserver do obserwowania sekcji
-        entries.forEach(entry => { // Iteruje przez wszystkie obserwowane elementy
-            if (entry.isIntersecting) { // Sprawdza, czy sekcja jest widoczna
-                entry.target.classList.add('fade-slide'); // Dodaje klasę 'fade-slide' do widocznej sekcji
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-slide');
             }
         });
-    }, options); // Przekazuje opcje do obserwatora
+    }, options);
 
-    sections.forEach(section => { // Iteruje przez wszystkie sekcje
-        observer.observe(section); // Rozpoczyna obserwację każdej sekcji
+    sections.forEach(section => {
+        observer.observe(section);
     });
 
-    const navLinks = document.querySelectorAll('nav a'); // Pobiera wszystkie linki w nawigacji
-    window.addEventListener('scroll', () => { // Nasłuchuje zdarzenia przewijania strony
-        let fromTop = window.scrollY; // Pobiera aktualną pozycję przewijania od góry strony
+    const navLinks = document.querySelectorAll('nav a');
+    window.addEventListener('scroll', () => {
+        let fromTop = window.scrollY;
 
-        navLinks.forEach(link => { // Iteruje przez wszystkie linki nawigacyjne
-            let section = document.querySelector(link.hash); // Pobiera sekcję powiązaną z linkiem (hash)
+        navLinks.forEach(link => {
+            let section = document.querySelector(link.hash);
 
-            if ( // Sprawdza, czy sekcja jest aktualnie widoczna na ekranie
-                section.offsetTop <= fromTop + 50 && // Sprawdza, czy górna krawędź sekcji jest powyżej pozycji przewijania
-                section.offsetTop + section.offsetHeight > fromTop + 50 // Sprawdza, czy dolna krawędź sekcji jest poniżej pozycji przewijania
+            if (
+                section.offsetTop <= fromTop + 50 &&
+                section.offsetTop + section.offsetHeight > fromTop + 50
             ) {
-                link.classList.add('scroll-highlight'); // Dodaje klasę 'scroll-highlight' do aktywnego linku
+                link.classList.add('scroll-highlight');
             } else {
-                link.classList.remove('scroll-highlight'); // Usuwa klasę 'scroll-highlight' z nieaktywnych linków
+                link.classList.remove('scroll-highlight');
             }
         });
     });
@@ -41,26 +41,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const menu = document.querySelector('.menu');
 
     hamburger.addEventListener('click', () => {
-        menu.classList.toggle('show'); // Przełącza klasę 'show' na menu
+        menu.classList.toggle('show');
     });
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const backgroundMusic = document.getElementById('background-music')
+    const backgroundMusic = document.getElementById('background-music');
     const musicControlButton = document.getElementById('music-control-button');
 
     let isMusicPlaying = false;
 
-    backgroundMusic.volume=0.1
+    backgroundMusic.volume = 0.1;
 
     musicControlButton.addEventListener('click', () => {
         if (isMusicPlaying) {
-            // Wycisz muzykę
             backgroundMusic.pause();
             musicControlButton.textContent = 'Włącz muzykę';
             isMusicPlaying = false;
         } else {
-            // Odtwórz muzykę
             backgroundMusic.play()
                 .then(() => {
                     musicControlButton.textContent = 'Wycisz muzykę';
@@ -71,4 +69,4 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
         }
     });
-})
+});
