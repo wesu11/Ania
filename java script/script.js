@@ -44,3 +44,31 @@ document.addEventListener('DOMContentLoaded', () => {
         menu.classList.toggle('show'); // Przełącza klasę 'show' na menu
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const backgroundMusic = document.getElementById('background-music')
+    const musicControlButton = document.getElementById('music-control-button');
+
+    let isMusicPlaying = false;
+
+    backgroundMusic.volume=0.1
+
+    musicControlButton.addEventListener('click', () => {
+        if (isMusicPlaying) {
+            // Wycisz muzykę
+            backgroundMusic.pause();
+            musicControlButton.textContent = 'Włącz muzykę';
+            isMusicPlaying = false;
+        } else {
+            // Odtwórz muzykę
+            backgroundMusic.play()
+                .then(() => {
+                    musicControlButton.textContent = 'Wycisz muzykę';
+                    isMusicPlaying = true;
+                })
+                .catch((error) => {
+                    console.log('Błąd podczas odtwarzania muzyki:', error);
+                });
+        }
+    });
+})

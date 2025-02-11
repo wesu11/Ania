@@ -66,3 +66,14 @@ footer { /* Style dla stopki (<footer>) */
     padding: 1rem 0; /* Wewnętrzny odstęp w stopce */
     margin-top: auto; /* Wypycha stopkę na dół strony, jeśli sekcja główna nie wypełnia całej wysokości */
 }
+#music-control-button{
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    padding: 10px 20px; 
+    background: linear-gradient(135deg, #ff0000, #ff0099);
+    color: white; 
+    border: none; 
+    border-radius: 15px; 
+    cursor: pointer;
+}

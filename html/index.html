@@ -20,13 +20,33 @@
     </nav>
 
     <main>
-        <img src="main_page_pic.JPG" alt="Zdjęcie Ani" class="home-image">
-        <p class="home-description">Prezencik dla mojej Aniuli najukochanszej</p>
+        <div class="image-container">
+            <img src="main_page_pic.JPG" alt="Główne zdjęcie" class="main-image">
+            <button class="escape-button" id="escapeButton">Kliknij mnie</button>
+        </div>
     </main>
+
+    <div class="overlay" id="overlay">
+        <div class="crawl-text">
+            <p>Dawno, dawno temu w odległej galaktyce...JSBDGHJKSDBFSDBFHJSDBFHSJDBSHDFBSDFHJBSDFJKNS JVH DSHVJBSDJKVNSDHJBFHSJKD HJ HJS DVHJ SDBJ DSHVJ SDHJV SBJLV SBDHJV SDHJV SJFDHV SHFV SHJFV SFHJV SFHJV SFVHJ SFVHJ SFVHJ </p>
+        </div>
+        <button class="close-button" id="closeButton">ZAMKNIJ</button>
+    </div>
+
+    <!-- Dodajemy muzykę tła -->
+    <audio id="background-music" src="../audio/sroda-czwartek.mp3" loop></audio>
+    <audio id="star-wars-music" src="../audio/star-wars-theme.mp3"></audio>
+
+    <!-- Przycisk do odtwarzania/wyciszania muzyki -->
+    <button id="music-control-button" >
+        Włącz muzykę
+    </button>
 
     <footer>
         <p>Od twojego Igiego</p>
     </footer>
+
     <script src="../java script/script.js"></script>
+    <script src="../java script/index.js"></script>
 </body>
 </html>

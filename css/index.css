@@ -1,105 +1,85 @@
-.home-image { /* Style dla obrazka na stronie głównej */
-    display: block; /* Ustawia obrazek jako element blokowy */
-    margin: 2rem auto; /* Margines góra-dół 2rem, a po bokach automatycznie (wyśrodkowanie) */
-    width: 220px; /* Szerokość obrazka */
-    height: auto; /* Wysokość dostosowuje się proporcjonalnie do szerokości */
-    border-radius: 20px; /* Zaokrąglenie rogów obrazka */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Dodaje cień do obrazka */
+/* Stylizacja głównego obrazu */
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    position: relative;
 }
 
-.home-description { /* Style dla opisu na stronie głównej */
-    text-align: center; /* Wyśrodkowanie tekstu */
-    margin-top: 1.5rem; /* Margines górny */
-    font-size: 1.2rem; /* Rozmiar czcionki */
-    color: #555; /* Kolor tekstu */
+.main-image {
+    max-width: auto; /* Zmniejszamy szerokość zdjęcia */
+    height: 500px;
+    border-radius: 15px; /* Dodajemy zaokrąglone rogi */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Dodajemy cień */
 }
 
-.modal { /* Style dla modala (okna dialogowego) */
-    display: none; /* Domyślnie modal jest ukryty */
-    position: fixed; /* Ustawia modal na stałej pozycji względem okna przeglądarki */
-    top: 0; /* Pozycja od góry */
-    left: 0; /* Pozycja od lewej */
-    width: 100%; /* Szerokość modala na całe okno */
-    height: 100%; /* Wysokość modala na całe okno */
-    background: rgba(0, 0, 0, 0.8); /* Półprzezroczyste tło modala */
-    justify-content: center; /* Wyśrodkowanie zawartości poziomo */
-    align-items: center; /* Wyśrodkowanie zawartości pionowo */
-    z-index: 1000; /* Ustawia modal na wierzchu innych elementów */
+/* Stylizacja przycisku uciekającego */
+.escape-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #ff0000, #ff0099);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
 }
 
-.modal-content { /* Style dla zawartości modala */
-    background: #fff; /* Kolor tła zawartości */
-    padding: 2rem; /* Wewnętrzny odstęp */
-    border-radius: 10px; /* Zaokrąglenie rogów */
-    max-width: 600px; /* Maksymalna szerokość zawartości */
-    width: 90%; /* Szerokość zawartości (90% szerokości okna) */
-    text-align: center; /* Wyśrodkowanie tekstu */
-    position: relative; /* Umożliwia pozycjonowanie elementów wewnątrz */
+/* Stylizacja ekranu z tekstem w stylu Star Wars */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.950);
+    color: yellow;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001; /* Ustawiamy wyższą warstwę niż menu */
 }
 
-.modal img { /* Style dla obrazka w modal */
-    max-width: 100%; /* Maksymalna szerokość obrazka */
-    height: auto; /* Wysokość dostosowuje się proporcjonalnie */
-    margin-bottom: 1rem; /* Margines dolny */
+.crawl-text {
+    position: absolute;
+    bottom: 0;
+    width: 60%;
+    font-size: 1.5rem;
+    text-align: center;
+    animation: crawl 10s linear forwards;
 }
 
-.close-btn { /* Style dla przycisku zamykającego modal */
-    position: absolute; /* Pozycjonowanie absolutne względem rodzica */
-    top: 10px; /* Odległość od góry */
-    right: 10px; /* Odległość od prawej */
-    background: #333; /* Kolor tła przycisku */
-    color: #fff; /* Kolor tekstu przycisku */
-    border: none; /* Usuwa obramowanie */
-    padding: 0.5rem; /* Wewnętrzny odstęp */
-    cursor: pointer; /* Zmienia kursor na wskaźnik */
-    border-radius: 5px; /* Zaokrąglenie rogów przycisku */
+@keyframes crawl {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(-300%); /* Tekst zatrzymuje się wyżej */
+    }
 }
 
-.lightbox { /* Style dla lightboxa (powiększonego podglądu obrazka) */
-    display: none; /* Domyślnie lightbox jest ukryty */
-    position: fixed; /* Ustawia lightbox na stałej pozycji względem okna przeglądarki */
-    top: 0; /* Pozycja od góry */
-    left: 0; /* Pozycja od lewej */
-    width: 100%; /* Szerokość lightboxa na całe okno */
-    height: 100%; /* Wysokość lightboxa na całe okno */
-    background: rgba(0, 0, 0, 0.8); /* Półprzezroczyste tło lightboxa */
-    justify-content: center; /* Wyśrodkowanie zawartości poziomo */
-    align-items: center; /* Wyśrodkowanie zawartości pionowo */
-    z-index: 1000; /* Ustawia lightbox na wierzchu innych elementów */
-    color: white; /* Kolor tekstu w lightboxie */
+.close-button {
+    display: none;
+    position: fixed;
+    top: 27%; /* Przycisk na środku strony */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background: rgba(255, 0, 0, 0);
+    color: yellow;
+    border: yellow;
+    border-style: solid;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1002; /* Przycisk nad tekstem */
 }
 
-.lightbox-content { /* Style dla zawartości lightboxa */
-    text-align: center; /* Wyśrodkowanie tekstu */
-}
-
-.lightbox img { /* Style dla obrazka w lightboxie */
-    max-width: 90%; /* Maksymalna szerokość obrazka */
-    max-height: 80%; /* Maksymalna wysokość obrazka */
-    border-radius: 10px; /* Zaokrąglenie rogów obrazka */
-    margin-bottom: 1rem; /* Margines dolny */
-}
-
-.lightbox .close { /* Style dla przycisku zamykającego lightbox */
-    position: absolute; /* Pozycjonowanie absolutne względem rodzica */
-    top: 20px; /* Odległość od góry */
-    right: 20px; /* Odległość od prawej */
-    font-size: 2rem; /* Rozmiar czcionki */
-    cursor: pointer; /* Zmienia kursor na wskaźnik */
-}
-
-.lightbox .description { /* Style dla opisu w lightboxie */
-    font-size: 1.2rem; /* Rozmiar czcionki */
-}
-
-.lightbox .full-image { /* Style dla linku do pełnego obrazka */
-    margin-top: 1rem; /* Margines górny */
-    display: block; /* Ustawia link jako element blokowy */
-    text-decoration: none; /* Usuwa podkreślenie linku */
-    color: #00f; /* Kolor tekstu linku */
-    font-size: 1rem; /* Rozmiar czcionki */
-}
-
-.lightbox .full-image:hover { /* Style dla linku po najechaniu myszką */
-    text-decoration: underline; /* Dodaje podkreślenie do linku */
+.close-button:hover {
+    transform: translate(-50%, -50%) scale(1.1); /* Lekkie powiększenie przy najechaniu */
 }
