@@ -22,15 +22,21 @@
     background: linear-gradient(135deg, #ff0000, #ff0099);
     color: white;
     border: none;
-    border-radius: 15px;
+    border-radius: 15px; /* Zaokrąglenie rogów */
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; /* Płynne przejście */
     position: absolute;
     width: 150px;
     height: 50px;
     box-sizing: border-box;
-    left: 0;
-    top: 0;
+    left: 0; /* Początkowa wartość left */
+    top: 0; /* Początkowa wartość top */
+    will-change: transform; /* Optymalizacja animacji */
+}
+
+.escape-button:hover {
+    transform: scale(1.1); /* Lekkie powiększenie przy najechaniu */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* Cień przy najechaniu */
 }
 
 .overlay {
@@ -67,31 +73,24 @@
     }
 }
 
-.escape-button {
-    margin-top: 20px;
+.close-button {
+    position: fixed;
+    bottom: 20px; /* Ustaw przycisk na dole ekranu */
+    left: 50%;
+    transform: translateX(-50%); /* Wyśrodkuj przycisk */
     padding: 10px 20px;
     font-size: 1.2rem;
-    background: linear-gradient(135deg, #ff0000, #ff0099);
-    color: white;
-    border: none;
-    border-radius: 15px;
+    background: rgba(255, 0, 0, 0);
+    color: yellow;
+    border: 2px solid yellow;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    position: absolute;
-    width: 150px;
-    height: 50px;
-    box-sizing: border-box;
-    left: 0;
-    top: 0;
-    will-change: transform;
-    transform: translateZ(0);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1002;
 }
 
-.escape-button:hover {
-    transform: scale(1.1) translateZ(0);
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+.close-button:hover {
+    transform: translateX(-50%) scale(1.1); /* Zachowaj wyśrodkowanie podczas hover */
 }
-
 @media (max-width: 768px) {
     .main-image {
         max-height: 400px;
