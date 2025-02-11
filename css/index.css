@@ -42,7 +42,7 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    z-index: 1001; 
+    z-index: 1001;
 }
 
 .crawl-text {
@@ -52,6 +52,7 @@
     font-size: 1.5rem;
     text-align: center;
     animation: crawl 10s linear forwards;
+    margin-bottom: 100px; /* Dodaj margines od dołu, aby tekst nie nachodził na przycisk */
 }
 
 @keyframes crawl {
@@ -59,27 +60,32 @@
         transform: translateY(100%);
     }
     to {
-        transform: translateY(-300%); 
+        transform: translateY(-300%);
     }
 }
 
 .close-button {
-    display: none;
     position: fixed;
-    top: 27%; 
+    bottom: 20px; /* Ustaw przycisk na dole ekranu */
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%); /* Wyśrodkuj przycisk */
     padding: 10px 20px;
     font-size: 1.2rem;
     background: rgba(255, 0, 0, 0);
     color: yellow;
-    border: yellow;
-    border-style: solid;
+    border: 2px solid yellow;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
-    z-index: 1002; 
+    z-index: 1002;
 }
 
 .close-button:hover {
-    transform: translate(-50%, -50%) scale(1.1); 
+    transform: translateX(-50%) scale(1.1); /* Zachowaj wyśrodkowanie podczas hover */
 }
+
+/* @media (max-width: 600px) {
+    .crawl-text {
+        font-size: 1rem; 
+        margin-bottom: 150px; 
+    }
+} */
