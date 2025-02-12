@@ -36,14 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const menu = document.querySelector('.menu');
-
-    hamburger.addEventListener('click', () => {
-        menu.classList.toggle('show');
-    });
-});
 
 document.addEventListener('DOMContentLoaded', () => {
     const backgroundMusic = document.getElementById('background-music');
@@ -56,12 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
     musicControlButton.addEventListener('click', () => {
         if (isMusicPlaying) {
             backgroundMusic.pause();
-            musicControlButton.textContent = 'Włącz muzykę';
+            musicControlButton.textContent = 'Puść sobie muzyczke!';
             isMusicPlaying = false;
         } else {
             backgroundMusic.play()
                 .then(() => {
-                    musicControlButton.textContent = 'Wycisz muzykę';
+                    musicControlButton.textContent = 'Zatrzymaj sobie muzyczke';
                     isMusicPlaying = true;
                 })
                 .catch((error) => {

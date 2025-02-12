@@ -22,9 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (mainText) {
         mainText.addEventListener("mouseenter", () => {
             mainText.style.transition = "transform 0.3s ease-in-out, color 0.3s ease-in-out, text-shadow 0.3s ease-in-out";
-            mainText.style.transform = "scale(1.05) translateX(0px)";
+            mainText.style.transform = "scale(1.03) translateX(0px)";
             mainText.style.color = "#ab0072";
-            mainText.style.textShadow = "4px 4px 10px rgba(0, 0, 0, 0.5)";
+            mainText.style.textShadow = "4px 4px 10px rgba(0, 0, 0, 0.4)";
 
             mainDiv.style.transition = "transform 0.3s ease-in-out";
             mainDiv.style.transform = `translateX(-${imageShiftAmount}px)`;

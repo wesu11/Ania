@@ -31,6 +31,7 @@
     margin: 0;
 }
 
+
 @media (max-width: 768px) {
     .div_main_pic {
         justify-content: center;

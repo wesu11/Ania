@@ -1,0 +1,96 @@
+.tiles-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    transition: all 0.5s ease;
+}
+
+.tile {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.tile:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text-display {
+    position: absolute;
+    top: 179px;
+    left: 400px;
+    right: 150px;
+    bottom: 102px;
+    overflow-y: auto;
+    font-size: 1.5rem;
+    color: #333;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    word-wrap: break-word;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+    max-height: calc(100vh - 230px - 92px);
+}
+
+.text-display.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.tile.active {
+    position: fixed;
+    left: 150px;
+    top: 50%;
+    transform: translateY(-50%) scale(1.1);
+    transition: left 0.5s ease, transform 0.5s ease, opacity 0.5s ease;
+    z-index: 1000;
+}
+
+.tiles-container.hide-other-tiles .tile:not(.active) {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+@media (max-width: 768px) {
+    .text-display {
+        left: 100px;
+        right: 100px;
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+
+    .tile.active {
+        left: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-display {
+        left: 50px;
+        right: 50px;
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .tile.active {
+        left: 50px;
+    }
+}

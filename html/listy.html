@@ -4,42 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liściki</title>
-    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/lists.css">
+    <link rel="stylesheet" href="../css/style.css">
     <script src="../java script/lists.js"></script>
     <script src="../java script/script.js"></script>
 </head>
 <body>
     <header>
         <h1>Liściki Miłosne</h1>
-        <h4>Będą Dodawane Nowe!!!</h4>
     </header>
 
     <nav>
-        <div class="hamburger">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
         <div class="menu">
             <a href="index.html">Strona główna</a>
-            <a href="o_ani.html">O Ani</a>
+            <a href="o_ani.html">O tobie</a>
             <a href="gallery.html">Galeria</a>
             <a href="listy.html">Lisciki</a>
         </div>
     </nav>
+
     <main>
-        
+            <!-- Sekcja kafelków -->
+    <div class="tiles-container">
+        <div class="tile" data-text="pupa">
+            <img src="../lists_img/1.png" alt="Kafelek 1">
+        </div>
+        <div class="tile" data-text="pupa2">
+            <img src="../lists_img/2.png" alt="Kafelek 2">
+        </div>
+        <div class="tile" data-text="pupa3">
+            <img src="../lists_img/3.png" alt="Kafelek 3">
+        </div>
+    </div>
+
+    <div class="text-display">
+        <p id="displayed-text"></p>
+    </div>
     </main>
 
     <audio id="background-music" src="../audio/sroda-czwartek.mp3" loop></audio>
 
     <button id="music-control-button" >
-        Włącz muzykę
+        Puść sobie muzyczke!
     </button>
 
     <footer>
-        <p>Od twojego Igiego</p>
+        <p>Od twojego Igiego na walentynki</p>
     </footer>
 </body>
 </html>

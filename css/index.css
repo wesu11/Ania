@@ -22,27 +22,27 @@
     background: linear-gradient(135deg, #ff0000, #ff0099);
     color: white;
     border: none;
-    border-radius: 15px; /* Zaokrąglenie rogów */
+    border-radius: 15px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out; /* Płynne przejście */
+    transition: all 0.3s ease-in-out;
     position: absolute;
     width: 150px;
     height: 50px;
     box-sizing: border-box;
-    left: 0; /* Początkowa wartość left */
-    top: 0; /* Początkowa wartość top */
-    will-change: transform; /* Optymalizacja animacji */
+    left: 0;
+    top: 0;
+    will-change: transform;
 }
 
 .escape-button:hover {
-    transform: scale(1.1); /* Lekkie powiększenie przy najechaniu */
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* Cień przy najechaniu */
+    transform: scale(1.1);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .overlay {
     display: none;
     position: fixed;
-    top: 0;
+    top:0px;
     left: 0;
     width: 100%;
     height: 100%;
@@ -56,7 +56,7 @@
 
 .crawl-text {
     position: absolute;
-    bottom: 0;
+    bottom: -50px;
     width: 80%;
     font-size: 1.5rem;
     text-align: center;
@@ -75,9 +75,9 @@
 
 .close-button {
     position: fixed;
-    bottom: 20px; /* Ustaw przycisk na dole ekranu */
+    bottom: 20px; 
     left: 50%;
-    transform: translateX(-50%); /* Wyśrodkuj przycisk */
+    transform: translateX(-50%);
     padding: 10px 20px;
     font-size: 1.2rem;
     background: rgba(255, 0, 0, 0);
@@ -89,8 +89,9 @@
 }
 
 .close-button:hover {
-    transform: translateX(-50%) scale(1.1); /* Zachowaj wyśrodkowanie podczas hover */
+    transform: translateX(-50%) scale(1.1);
 }
+
 @media (max-width: 768px) {
     .main-image {
         max-height: 400px;
