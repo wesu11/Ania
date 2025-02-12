@@ -1,5 +1,5 @@
 .div_main_pic {
-    display: flex;
+    display: sticky;
     justify-content: flex-start;
     padding: 20px;
     box-sizing: border-box;
