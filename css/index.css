@@ -5,6 +5,8 @@
     justify-content: center;
     height: 80vh;
     position: relative;
+    padding: 20px; /* Dodano padding dla lepszego odstępu */
+    box-sizing: border-box;
 }
 
 .main-image {
@@ -13,6 +15,11 @@
     max-height: 500px;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out; /* Dodano płynne przejście */
+}
+
+.main-image:hover {
+    transform: scale(1.05); /* Lekkie powiększenie przy najechaniu */
 }
 
 .escape-button {
@@ -42,7 +49,7 @@
 .overlay {
     display: none;
     position: fixed;
-    top:0px;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -75,7 +82,7 @@
 
 .close-button {
     position: fixed;
-    bottom: 20px; 
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     padding: 10px 20px;
@@ -93,6 +100,10 @@
 }
 
 @media (max-width: 768px) {
+    .image-container {
+        height: 70vh; /* Dostosowano wysokość dla tabletów */
+    }
+
     .main-image {
         max-height: 400px;
     }
@@ -106,9 +117,18 @@
         font-size: 1rem;
         padding: 8px 16px;
     }
+
+    .close-button {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
 }
 
 @media (max-width: 480px) {
+    .image-container {
+        height: 60vh; /* Dostosowano wysokość dla telefonów */
+    }
+
     .main-image {
         max-height: 300px;
     }
@@ -126,5 +146,30 @@
     .close-button {
         font-size: 1rem;
         padding: 8px 16px;
+    }
+}
+
+@media (max-width: 320px) {
+    .image-container {
+        height: 50vh; /* Dostosowano wysokość dla bardzo małych ekranów */
+    }
+
+    .main-image {
+        max-height: 250px;
+    }
+
+    .crawl-text {
+        font-size: 0.9rem;
+        margin-bottom: 60px;
+    }
+
+    .escape-button {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+
+    .close-button {
+        font-size: 0.9rem;
+        padding: 6px 12px;
     }
 }

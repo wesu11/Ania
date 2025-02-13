@@ -1,8 +1,11 @@
 .div_main_pic {
-    display: sticky;
-    justify-content: flex-start;
+    top: 0; /* Przyklej kontener zdjęcia do góry ekranu */
+    display: flex;
+    justify-content: flex-start; /* Zdjęcie po lewej stronie */
+    align-items: flex-start; /* Wyrównaj do góry */
     padding: 20px;
     box-sizing: border-box;
+    z-index: 10; /* Upewnij się, że zdjęcie jest na wierzchu */
 }
 
 #main_pic {
@@ -15,11 +18,13 @@
 
 #main_div {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+    flex-direction: row; /* Zdjęcie i tekst obok siebie */
+    align-items: flex-start; /* Wyrównaj do góry */
     gap: 20px;
     padding: 20px;
     box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 #main_pic:hover {
@@ -29,16 +34,12 @@
 #main_div p {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     margin: 0;
+    font-size: 1rem;
 }
 
-
 @media (max-width: 768px) {
-    .div_main_pic {
-        justify-content: center;
-    }
-
     #main_div {
-        flex-direction: column;
+        flex-direction: column; /* Na mniejszych ekranach zdjęcie i tekst w kolumnie */
         align-items: center;
         gap: 15px;
     }
