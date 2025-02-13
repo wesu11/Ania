@@ -49,7 +49,7 @@
 
 #selected-image {
     max-width: 90%;
-    max-height: 80vh; /* Zwiększono maksymalną wysokość */
+    max-height: 80vh;
     border-radius: 10px;
     margin-bottom: 10px;
     opacity: 0;
@@ -91,7 +91,7 @@
     }
 
     #selected-image {
-        max-height: 70vh; /* Dostosowano dla tabletów */
+        max-height: 70vh;
     }
 }
 
@@ -107,17 +107,17 @@
     }
 
     #selected-image {
-        max-height: 60vh; /* Dostosowano dla telefonów */
+        max-height: 60vh;
     }
 
     .image-container {
-        padding: 10px; /* Mniejszy padding na małych ekranach */
+        padding: 10px;
     }
 }
 
 @media (max-width: 320px) {
     .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Mniejsze obrazy dla bardzo małych ekranów */
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
         gap: 0.3rem;
     }
 
@@ -127,6 +127,6 @@
     }
 
     #selected-image {
-        max-height: 50vh; /* Mniejsza wysokość dla bardzo małych ekranów */
+        max-height: 50vh;
     }
 }

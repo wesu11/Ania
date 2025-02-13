@@ -20,12 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
     musicControlButton.addEventListener('click', () => {
         if (isMusicPlaying) {
             backgroundMusic.pause();
-            musicControlButton.textContent = 'Włącz muzykę';
+            musicControlButton.textContent = 'Puść sobie muzyczke!';
             isMusicPlaying = false;
         } else {
             backgroundMusic.play()
                 .then(() => {
-                    musicControlButton.textContent = 'Wycisz muzykę';
+                    musicControlButton.textContent = 'Zatrzymaj sobie muzyczke';
                     isMusicPlaying = true;
                 })
                 .catch((error) => {
@@ -79,13 +79,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startStarWarsAnimation() {
         backgroundMusic.pause();
-        musicControlButton.textContent = 'Włącz muzykę';
+        musicControlButton.textContent = 'Puść sobie muzyczke!';
         isMusicPlaying = false;
 
         overlay.style.display = 'flex';
-        starWarsMusic.play();
+        setTimeout(() => {
+            overlay.classList.add('active');
+        }, 10);
 
-        closeButton.style.display = 'none';
+        starWarsMusic.play();
 
         setTimeout(() => {
             closeButton.style.display = 'block';
@@ -93,9 +95,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     closeButton.addEventListener('click', () => {
-        overlay.style.display = 'none';
+        overlay.classList.remove('active');
+        setTimeout(() => {
+            overlay.style.display = 'none';
+        }, 1000);
         starWarsMusic.pause();
         starWarsMusic.currentTime = 0;
+        closeButton.style.display = 'none';
     });
 
     function setInitialButtonPosition() {

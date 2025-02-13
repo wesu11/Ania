@@ -5,7 +5,7 @@
     justify-content: center;
     height: 80vh;
     position: relative;
-    padding: 20px; /* Dodano padding dla lepszego odstępu */
+    padding: 20px; 
     box-sizing: border-box;
 }
 
@@ -15,11 +15,11 @@
     max-height: 500px;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out; /* Dodano płynne przejście */
+    transition: transform 0.3s ease-in-out; 
 }
 
 .main-image:hover {
-    transform: scale(1.05); /* Lekkie powiększenie przy najechaniu */
+    transform: scale(1.05); 
 }
 
 .escape-button {
@@ -59,24 +59,43 @@
     justify-content: center;
     align-items: center;
     z-index: 1001;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.overlay.active {
+    opacity: 1;
+}
+
+.crawl-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    perspective: 300px;
 }
 
 .crawl-text {
     position: absolute;
-    bottom: -50px;
+    top: 100%;
     width: 80%;
+    left: 10%;
     font-size: 1.5rem;
     text-align: center;
-    animation: crawl 10s linear forwards;
-    margin-bottom: 100px;
+    animation: crawl 10s linear forwards; 
+    transform-origin: 50% 100%;
 }
 
 @keyframes crawl {
-    from {
-        transform: translateY(100%);
+    0% {
+        top: 100%;
+        transform: rotateX(20deg) translateY(100%);
     }
-    to {
-        transform: translateY(-300%);
+    100% {
+        top: 200px; 
+        transform: rotateX(20deg) translateY(-100%);
     }
 }
 
@@ -93,6 +112,7 @@
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
     z-index: 1002;
+    display: none;
 }
 
 .close-button:hover {
@@ -101,7 +121,7 @@
 
 @media (max-width: 768px) {
     .image-container {
-        height: 70vh; /* Dostosowano wysokość dla tabletów */
+        height: 70vh; 
     }
 
     .main-image {
@@ -124,9 +144,9 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) {    
     .image-container {
-        height: 60vh; /* Dostosowano wysokość dla telefonów */
+        height: 60vh; 
     }
 
     .main-image {
@@ -134,8 +154,8 @@
     }
 
     .crawl-text {
+        top: 195px;
         font-size: 1rem;
-        margin-bottom: 80px;
     }
 
     .escape-button {
@@ -151,7 +171,7 @@
 
 @media (max-width: 320px) {
     .image-container {
-        height: 50vh; /* Dostosowano wysokość dla bardzo małych ekranów */
+        height: 50vh; 
     }
 
     .main-image {
@@ -160,7 +180,6 @@
 
     .crawl-text {
         font-size: 0.9rem;
-        margin-bottom: 60px;
     }
 
     .escape-button {
