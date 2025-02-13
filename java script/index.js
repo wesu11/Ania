@@ -120,6 +120,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainImage = document.querySelector('.main-image');
     let isShiftPressed = false;
 
+    // Pobranie odtwarzacza muzyki w tle
+    const backgroundMusic = document.getElementById('background-music');
+
     // Tworzenie czarnego ekranu z błędem
     const destructionOverlay = document.createElement('div');
     Object.assign(destructionOverlay.style, {
@@ -129,21 +132,25 @@ document.addEventListener('DOMContentLoaded', () => {
         width: '100vw',
         height: '100vh',
         background: 'black',
-        color: '#00FF41', // Zielony jak w terminalu
+        color: '#00FF41',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'flex-start', // Tekst od góry
-        alignItems: 'flex-start', // Tekst od lewej
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
         fontFamily: '"Courier New", monospace',
         fontSize: '1.5vw',
         textAlign: 'left',
         padding: '20px',
         boxSizing: 'border-box',
         zIndex: '9999',
-        overflow: 'hidden', // Zapobiega przewijaniu
-        display: 'none' // Ukryty na start
+        overflow: 'hidden',
+        display: 'none'
     });
     document.body.appendChild(destructionOverlay);
+
+    // Dźwięk alarmu
+    const alarmSound = new Audio('../audio/alarm.mp3');
+    alarmSound.loop = true;
 
     // Obsługa przytrzymania Shifta
     document.addEventListener('keydown', (e) => {
@@ -156,12 +163,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Kliknięcie w obrazek przytrzymując Shift
     mainImage.addEventListener('click', () => {
-        if (isShiftPressed) startDestructionSequence();
+        if (isShiftPressed) {
+            // Sprawdzenie czy muzyka gra i zatrzymanie jej
+            if (!backgroundMusic.paused) {
+                backgroundMusic.pause();
+                document.getElementById('music-control-button').textContent = 'Puść sobie muzyczke!';
+            }
+            startDestructionSequence();
+        }
     });
 
     function startDestructionSequence() {
         destructionOverlay.style.display = 'flex';
-        
+        alarmSound.play();
+
         const text = [
             "⚠️ SYSTEM FAILURE DETECTED\n\n",
             "Unauthorized system interaction has caused an irreparable integrity breach.\n",
@@ -173,14 +188,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let currentText = "";
         let charIndex = 0;
-        let fullText = text.join(""); // Łączy wszystko w jedną całość
+        let fullText = text.join("");
 
         function typeEffect() {
             if (charIndex < fullText.length) {
                 currentText += fullText[charIndex];
                 destructionOverlay.innerHTML = `<pre style="white-space: pre-wrap;">${currentText}</pre>`;
                 charIndex++;
-                setTimeout(typeEffect, 50); // Szybsze tempo, ale nadal litera po literze
+                setTimeout(typeEffect, 50);
             } else {
                 startCountdown();
             }
@@ -192,11 +207,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function startCountdown() {
         let countdown = 10;
 
-        // Stworzenie kontenera odliczania
         const countdownContainer = document.createElement('div');
         Object.assign(countdownContainer.style, {
             position: 'absolute',
-            bottom: '10%', // Odliczanie jest niżej, nie zasłania tekstu
+            bottom: '10%',
             left: '50%',
             transform: 'translateX(-50%)',
             textAlign: 'center',
@@ -223,7 +237,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (countdown === 0) {
                 clearInterval(countdownInterval);
-                location.reload(); // Restart strony
+                alarmSound.pause(); 
+                location.reload();
             }
         }, 1000);
     }
