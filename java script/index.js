@@ -115,3 +115,116 @@ document.addEventListener('DOMContentLoaded', () => {
         button.style.top = `${initialY}px`;
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const mainImage = document.querySelector('.main-image');
+    let isShiftPressed = false;
+
+    // Tworzenie czarnego ekranu z błędem
+    const destructionOverlay = document.createElement('div');
+    Object.assign(destructionOverlay.style, {
+        position: 'fixed',
+        top: '0',
+        left: '0',
+        width: '100vw',
+        height: '100vh',
+        background: 'black',
+        color: '#00FF41', // Zielony jak w terminalu
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-start', // Tekst od góry
+        alignItems: 'flex-start', // Tekst od lewej
+        fontFamily: '"Courier New", monospace',
+        fontSize: '1.5vw',
+        textAlign: 'left',
+        padding: '20px',
+        boxSizing: 'border-box',
+        zIndex: '9999',
+        overflow: 'hidden', // Zapobiega przewijaniu
+        display: 'none' // Ukryty na start
+    });
+    document.body.appendChild(destructionOverlay);
+
+    // Obsługa przytrzymania Shifta
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Shift') isShiftPressed = true;
+    });
+
+    document.addEventListener('keyup', (e) => {
+        if (e.key === 'Shift') isShiftPressed = false;
+    });
+
+    // Kliknięcie w obrazek przytrzymując Shift
+    mainImage.addEventListener('click', () => {
+        if (isShiftPressed) startDestructionSequence();
+    });
+
+    function startDestructionSequence() {
+        destructionOverlay.style.display = 'flex';
+        
+        const text = [
+            "⚠️ SYSTEM FAILURE DETECTED\n\n",
+            "Unauthorized system interaction has caused an irreparable integrity breach.\n",
+            "Error Code: EXCEPTION_ACCESS_VIOLATION (0xC0000005)\n",
+            "Recursive memory allocation failure in protected stack space.\n",
+            "Critical data corruption detected in sector 0x1A3F7C.\n",
+            "System shutdown protocol initiated.\n\n"
+        ];
+
+        let currentText = "";
+        let charIndex = 0;
+        let fullText = text.join(""); // Łączy wszystko w jedną całość
+
+        function typeEffect() {
+            if (charIndex < fullText.length) {
+                currentText += fullText[charIndex];
+                destructionOverlay.innerHTML = `<pre style="white-space: pre-wrap;">${currentText}</pre>`;
+                charIndex++;
+                setTimeout(typeEffect, 50); // Szybsze tempo, ale nadal litera po literze
+            } else {
+                startCountdown();
+            }
+        }
+
+        typeEffect();
+    }
+
+    function startCountdown() {
+        let countdown = 10;
+
+        // Stworzenie kontenera odliczania
+        const countdownContainer = document.createElement('div');
+        Object.assign(countdownContainer.style, {
+            position: 'absolute',
+            bottom: '10%', // Odliczanie jest niżej, nie zasłania tekstu
+            left: '50%',
+            transform: 'translateX(-50%)',
+            textAlign: 'center',
+            fontSize: '4vw',
+            fontWeight: 'bold',
+            color: 'red'
+        });
+
+        const countdownText = document.createElement('p');
+        countdownText.textContent = "Laptop shutdown in:";
+        countdownText.style.marginBottom = '10px';
+
+        const countdownNumber = document.createElement('p');
+        countdownNumber.textContent = countdown;
+        countdownNumber.style.fontSize = '6vw';
+
+        countdownContainer.appendChild(countdownText);
+        countdownContainer.appendChild(countdownNumber);
+        destructionOverlay.appendChild(countdownContainer);
+
+        const countdownInterval = setInterval(() => {
+            countdown--;
+            countdownNumber.textContent = countdown;
+
+            if (countdown === 0) {
+                clearInterval(countdownInterval);
+                location.reload(); // Restart strony
+            }
+        }, 1000);
+    }
+});
